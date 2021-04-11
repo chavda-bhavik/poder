@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@heroicons/react": "^1.0.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^13.1.2",
@@ -12,6 +13,7 @@
     "@types/react-dom": "^17.0.3",
     "autoprefixer": "10.x",
     "cross-env": "7.x",
+    "moment": "^2.29.1",
     "npm-run-all": "4.x",
     "postcss": "8.x",
     "postcss-cli": "8.x",
