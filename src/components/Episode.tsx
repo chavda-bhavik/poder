@@ -6,7 +6,9 @@ interface EpisodeProps {
     imageAlt: string,
     title: string,
     date: number,
-    duration: number
+    duration: number,
+    id: string,
+    onSelect: (id: string) => void
 }
 
 const formatSeconds = (seconds: number): string => {
@@ -15,7 +17,7 @@ const formatSeconds = (seconds: number): string => {
     return `00:${mins > 10 ? mins : '0'+mins}:${secs > 10 ? secs : '0'+secs}`;
 }
 
-const Episode:React.FC<EpisodeProps> = ({ imageSrc, imageAlt, duration, date, title }) => {
+const Episode:React.FC<EpisodeProps> = ({ imageSrc, imageAlt, duration, date, title, id, onSelect }) => {
     return (
         <div className="w-full p-2">
             <div className="flex flex-row rounded overflow-hidden border shadow-md">
@@ -30,7 +32,7 @@ const Episode:React.FC<EpisodeProps> = ({ imageSrc, imageAlt, duration, date, ti
                         <p className="text-gray-500 text-sm">{moment(date).format('MMMM DD, YYYY')}</p>
                     </div>
                     <div className="text-sm flex flex-row lg:flex-col items-center lg:justify-center">
-                        <PlayIcon className="text-red-500 w-10 inline" /> {formatSeconds(duration)}
+                        <PlayIcon onClick={() => onSelect(id) } className="text-maroon w-10 inline" /> {formatSeconds(duration)}
                     </div>
                 </div>
             </div>

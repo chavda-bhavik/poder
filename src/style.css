@@ -1,6 +1,18 @@
 .rhap_container {
-    background-color: #d9d9d9 !important;
+    background-color: #f1f1f1 !important;
 }
 .rhap_play-pause-button {
-    color: cornflowerblue;
+    color: var(--darkGray);
+}
+.rhap_rewind-button, .rhap_forward-button {
+    color: #868686
+}
+.rhap_download-progress {
+    background-color: #b3b3b3;
+}
+.rhap_progress-filled {
+    background-color: #868686;
+}
+.rhap_volume-bar {
+    background-color: rgb(187, 187, 187);
 }
