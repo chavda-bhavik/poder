@@ -1,5 +1,6 @@
 import { PlayIcon, PauseIcon } from '@heroicons/react/solid'
 import moment from 'moment';
+import { motion } from 'framer-motion'
 
 interface EpisodeProps {
     imageSrc: string,
@@ -12,7 +13,8 @@ interface EpisodeProps {
     selectedEpisodeId: string | undefined,
     pause: () => void,
     playing: boolean,
-    resume: () => void
+    resume: () => void,
+    index: number
 }
 
 const formatSeconds = (seconds: number): string => {
@@ -21,17 +23,36 @@ const formatSeconds = (seconds: number): string => {
     return `00:${mins > 10 ? mins : '0'+mins}:${secs > 10 ? secs : '0'+secs}`;
 }
 
-const Episode: React.FC<EpisodeProps> = ({ imageSrc, imageAlt, duration, date, title, id, selectedEpisodeId, onSelect, pause, playing, resume }) => {
+const Episode: React.FC<EpisodeProps> = ({ imageSrc, imageAlt, duration, date, title, id, selectedEpisodeId, onSelect, pause, playing, resume, index }) => {
     let actionIcon = <PlayIcon onClick={() => onSelect(id)} className="text-maroon w-10 inline" />;
     if (id === selectedEpisodeId) {
         // clicking on same episode
         if(playing)
-            actionIcon = <PauseIcon onClick={() => pause()} className="text-maroon w-10 inline" />
+            actionIcon = <PauseIcon onClick={() => pause()} className="text-red-500 w-10 inline" />
         else
             actionIcon = <PlayIcon onClick={() => resume()} className="text-maroon w-10 inline" />
     }
     return (
-        <div className="w-full p-2">
+        <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="end"
+            className="w-full p-2 relative"
+            transition={{ delay: index * 0.2 }}
+            variants={{
+                hidden: {
+                    opacity: 0,
+                    top: -20,
+                },
+                visible: {
+                    top: 0,
+                    opacity: 1,
+                },
+                end: {
+                    
+                }
+            }}
+        >
             <div className="flex flex-row rounded overflow-hidden border shadow-md">
                 <img
                     className="block h-auto w-24 lg:w-20 bg-cover"
@@ -49,7 +70,7 @@ const Episode: React.FC<EpisodeProps> = ({ imageSrc, imageAlt, duration, date, t
                     </div>
                 </div>
             </div>
-      </div>
+      </motion.div>
     )
 }
 
