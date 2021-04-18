@@ -8,6 +8,7 @@ import { Loading } from './components/Loading/Loading';
 import { Search } from './components/Search/Search';
 import { Episodes } from './components/Episodes/Episodes';
 import './style.css';
+import { motion } from 'framer-motion';
 
 
 function App() {
@@ -28,8 +29,10 @@ function App() {
         'X-ListenAPI-Key': process.env.REACT_APP_ListenAPI_Key!
       }
     });
-    let data:searchResult = await response.json();
-    setEpisodes(data.results);
+    let data: searchResult = await response.json();
+    if (data.results) {
+      setEpisodes(data.results); 
+    }
     setLoading(false);
     setSelectedEpisode(undefined);
   }
@@ -48,7 +51,6 @@ function App() {
     audioRef.current?.audio.current?.play();
   }
 
-  console.log(loading);
   return (
     <div className="h-full bg-gradient-to-br from-gray-600 via-teal-7 to-gray-800 p-3">
       
@@ -72,7 +74,22 @@ function App() {
         {
           (selectedEpisode && episodes.length > 0) &&
           (
-            <div className="bottom-0 flex-grow-0">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              className="bottom-0 flex-grow-0"
+              transition={{ duration: 0.4 }}
+              variants={{
+                hidden: {
+                  opacity: 0.2,
+                  bottom: -20
+                },
+                visible: {
+                  opacity: 1,
+                  bottom: 0
+                }
+              }}
+            >
               <AudioPlayer
                 ref={audioRef}
                 autoPlay={true}
@@ -82,7 +99,7 @@ function App() {
                 onPlay={() => !playing && setPlaying(true) }
                 onPause={() => playing && setPlaying(false) }
               />
-            </div>
+            </motion.div>
           )
         }
       </div>

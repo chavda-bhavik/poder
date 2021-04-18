@@ -18,9 +18,7 @@ interface EpisodeProps {
 }
 
 const formatSeconds = (seconds: number): string => {
-    let mins = Math.floor(seconds / 60);
-    let secs = seconds - (mins * 60);
-    return `00:${mins > 10 ? mins : '0'+mins}:${secs > 10 ? secs : '0'+secs}`;
+    return new Date(seconds * 1000).toISOString().substr(11, 8);
 }
 
 const Episode: React.FC<EpisodeProps> = ({ imageSrc, imageAlt, duration, date, title, id, selectedEpisodeId, onSelect, pause, playing, resume, index }) => {
