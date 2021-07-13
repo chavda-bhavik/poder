@@ -2,6 +2,12 @@
   "name": "poder",
   "version": "0.1.0",
   "private": true,
+  "author": "Bhavik Chavda",
+  "homepage": "https://github.com/chavda-bhavik/poder#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chavda-bhavik/poder"
+  },
   "dependencies": {
     "@heroicons/react": "^1.0.0",
     "@testing-library/jest-dom": "^5.11.10",
