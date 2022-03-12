@@ -1,0 +1,81 @@
+@tailwind base;
+
+/* Your own custom base styles */
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Your own custom component styles */
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
+:root {
+    --darkGray: #4A707A;
+    --mediumGray: #7697A0;
+    --gray: #94B0B7;
+    --lightGray: #C2C8C5;
+    --whiteGray: #F3F3F9;
+    --maroon: #2D3452;
+}
+.bg-whiteGray {
+    background-color: var(--whiteGray);
+}
+.bg-lightGray {
+    background-color: var(--lightGray);
+}
+.bg-gray {
+    background-color: var(--gray);
+}
+.bg-mediumGray {
+    background-color: var(--mediumGray);
+}
+.bg-darkGray {
+    background-color: var(--darkGray);
+}
+.bg-maroon {
+    background-color: var(--maroon);
+}
+
+.text-maroon {
+    color: var(--maroon);
+}
+.text-whiteGray {
+    color: var(--whiteGray) !important;
+}
+.text-lightGray {
+    color: var(--lightGray) !important;
+}
+.text-gray {
+    color: var(--gray) !important;
+}
+.text-mediumGray {
+    color: var(--mediumGray) !important;
+}
+.text-darkGray {
+    color: var(--darkGray) !important;
+}
+
+/* Audio Player */
+.rhap_container {
+    background-color: #f1f1f1 !important;
+}
+.rhap_play-pause-button {
+    color: var(--darkGray);
+}
+.rhap_rewind-button, .rhap_forward-button {
+    color: #868686
+}
+.rhap_download-progress {
+    background-color: #b3b3b3;
+}
+.rhap_progress-filled {
+    background-color: #868686;
+}
+.rhap_volume-bar {
+    background-color: rgb(187, 187, 187);
+}
+/* /End of Audio Player */
