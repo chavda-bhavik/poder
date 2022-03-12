@@ -26,7 +26,7 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: setup deployment
       run: |
-        yarn ci
+        yarn install --frozen-lockfile
         rm -rf dist
         yarn run build
         git add dist -f
