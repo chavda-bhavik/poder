@@ -2,7 +2,6 @@ import React, { createRef, useState } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
-import { EpisodeType, searchResult } from './types';
 import { Loading } from './components/Loading/Loading';
 import { Search } from './components/Search/Search';
 import { Episodes } from './components/Episodes/Episodes';
@@ -52,7 +51,7 @@ function App() {
     };
 
     return (
-        <div className="h-full bg-gradient-to-br from-gray-600 via-teal-7 to-gray-800 p-3">
+        <div className="h-screen bg-gradient-to-br from-gray-600 via-teal-7 to-gray-800 p-3">
             <div className="w-full h-full bg-white rounded-md flex flex-col">
                 <Search onSearch={onSearch} />
 

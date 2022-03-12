@@ -1,4 +1,13 @@
-export interface EpisodeType {
+declare module '*.css';
+interface ImportMetaEnv {
+    readonly VITE_ListenAPI_Key: string
+}
+
+interface ImportMeta {
+    readonly env: ImportMetaEnv
+}
+
+interface EpisodeType {
     "id": string,
     "rss": string,
     "link": string,
@@ -29,7 +38,7 @@ export interface EpisodeType {
     "transcripts_highlighted": string[]
 }
 
-export interface searchResult {
+interface searchResult {
     "took": number,
     "count": number
     "total": number

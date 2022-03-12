@@ -1,6 +1,5 @@
 import React from 'react'
 import Episode from './Episode/Episode';
-import { EpisodeType } from '../../types'
 
 interface EpisodesProps {
     episodes: EpisodeType[],
