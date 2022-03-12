@@ -8,4 +8,5 @@ export default defineConfig({
         brotliSize: false,
     },
     plugins: [tsconfigPaths(), reactRefresh()],
+    base: "/poder/dist"
 });
