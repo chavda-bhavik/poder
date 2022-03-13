@@ -26,3 +26,4 @@ api-notes
 .env
 
 dist
+.github/workflows
